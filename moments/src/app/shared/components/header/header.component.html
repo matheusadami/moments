@@ -1,0 +1,32 @@
+<nav class="flex justify-between items-center mx-auto px-8 py-4">
+  <!-- border-b-2 border-gray-800 -->
+  <div class="group">
+    <a class="flex justify-center items-center gap-2" routerLink="/">
+      <img class="w-12 mr-2" src="/assets/moments.png" alt="Logotipo" />
+      <h2
+        class="text-2xl font-bold transition-all duration-300 group-hover:text-yellow-500 hover:cursor-pointer"
+      >
+        Moments
+      </h2>
+    </a>
+  </div>
+  <ul>
+    <li class="flex gap-5">
+      <a
+        class="hover:translate-x-0.5 hover:-translate-y-0.5"
+        [routerLink]="['/']"
+        >Home</a
+      >
+      <a
+        class="hover:font-bold hover:translate-x-0.5 hover:-translate-y-0.5"
+        [routerLink]="['/moments/create']"
+        >Share</a
+      >
+      <a
+        class="hover:translate-x-0.5 hover:-translate-y-0.5"
+        [routerLink]="['/about']"
+        >About</a
+      >
+    </li>
+  </ul>
+</nav>

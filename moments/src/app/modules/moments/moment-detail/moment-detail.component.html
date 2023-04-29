@@ -1,0 +1,25 @@
+<div
+  class="flex flex-col items-center max-w-[85%] mx-auto"
+  *ngIf="momentDetail"
+>
+  <div>
+    <h3 class="text-3xl font-medium mt-2 mb-8">{{ momentDetail.title }}</h3>
+  </div>
+
+  <div class="w-[50%]">
+    <img
+      class="rounded-md"
+      src="{{ baseApiUrl }}/uploads/{{ momentDetail.image }}"
+      alt="{{ momentDetail.title }}"
+    />
+  </div>
+
+  <div class="text-center text-lg my-8 space-y-2">
+    <p class="italic text-base">About this moment:</p>
+    <p>{{ momentDetail.description }}</p>
+  </div>
+
+  <div class="w-[50%] h-px mb-8 bg-gray-200 border-0"></div>
+
+  <app-comments [moment]="momentDetail" class="w-full" />
+</div>

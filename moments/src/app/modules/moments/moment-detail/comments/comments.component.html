@@ -1,0 +1,82 @@
+<div
+  class="flex flex-col justify-center items-center mb-4 w-full"
+  *ngIf="comments"
+>
+  <div>
+    <h2 class="text-xl font-medium">Comments ({{ comments.length || 0 }}):</h2>
+  </div>
+
+  <div
+    class="flex flex-col w-full"
+    *ngIf="moment!.comments!.length > 0; else noComments"
+  >
+    <div class="my-4" *ngFor="let comment of comments">
+      <p>{{ comment.text }}</p>
+      <p><span>by: </span> {{ comment.username }}</p>
+    </div>
+  </div>
+
+  <ng-template #noComments>
+    <h1 class="text-sm italic font-medium my-4">No comments has found!</h1>
+  </ng-template>
+
+  <div class="w-[50%] h-px my-4 bg-gray-200 border-0"></div>
+
+  <div class="w-full mt-4">
+    <div class="flex flex-col justify-center space-y-4 w-full">
+      <h3>Write a comment:</h3>
+      <form
+        [formGroup]="commentForm"
+        #formControl="ngForm"
+        (ngSubmit)="submitForm()"
+      >
+        <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
+          <div class="px-4 py-2 bg-white rounded-t-lg">
+            <textarea
+              name="comment"
+              rows="4"
+              class="w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0"
+              placeholder="Describe your thoughts about this moment..."
+              formControlName="text"
+            ></textarea>
+            <div
+              *ngIf="text?.invalid && formControl.submitted"
+              class="mt-2 font-medium"
+            >
+              <p *ngIf="text?.errors?.['required']" class="text-red-800">
+                The comment is required
+              </p>
+            </div>
+          </div>
+          <div class="border-t border-gray-200">
+            <div class="px-4 py-2 bg-white rounded-lg">
+              <input
+                name="username"
+                type="text"
+                class="w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0 focus:outline-none"
+                placeholder="Enter your name..."
+                formControlName="username"
+              />
+              <div
+                *ngIf="username?.invalid && formControl.submitted"
+                class="mt-2 font-medium"
+              >
+                <p *ngIf="username?.errors?.['required']" class="text-red-800">
+                  The name is required
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between px-3 py-2 border-t">
+            <button
+              type="submit"
+              class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-yellow-500 rounded-lg shadow-sm transition-all duration-300 hover:translate-x-0.5 hover:-translate-y-0.5 hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-500"
+            >
+              Post comment
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
