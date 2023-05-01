@@ -11,11 +11,15 @@ import { environment } from 'environments/environment';
   providedIn: 'root',
 })
 export class MomentService {
-  private apiUrl = `${environment.baseApiUrl}/api/moments`;
+  public apiUrl = `${environment.baseApiUrl}/api/moments`;
 
   constructor(private http: HttpClient) {}
 
   async create(formData: FormData): Promise<ApiResponse<Moment>> {
+    if (!(formData.get('image') instanceof File)) {
+      throw new Error('The image must be a File instance');
+    }
+
     var response$ = this.http.post<ApiResponse<Moment>>(this.apiUrl, formData);
     return lastValueFrom(response$);
   }

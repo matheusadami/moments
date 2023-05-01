@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { Moment } from '@core/models/moment.model';
 import { MomentService } from '@core/services/moment.service';
@@ -17,8 +17,7 @@ export class MomentDetailComponent implements OnInit {
 
   constructor(
     private momentService: MomentService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {

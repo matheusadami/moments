@@ -14,7 +14,7 @@ import { MessageDialogService } from '@core/services/message-dialog.service';
 export class CommentsComponent implements OnInit {
   @Input() moment?: Moment;
 
-  comments!: Comment[];
+  momentComments: Comment[] = [];
   commentForm!: FormGroup;
 
   constructor(
@@ -23,7 +23,7 @@ export class CommentsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.comments = Array.from(this.moment?.comments ?? []);
+    this.momentComments = Array.from(this.moment?.comments ?? []);
 
     this.commentForm = new FormGroup({
       text: new FormControl('', [Validators.required]),
@@ -49,7 +49,7 @@ export class CommentsComponent implements OnInit {
 
     await this.commentService.create(newComment);
 
-    this.comments.push(newComment);
+    this.momentComments.push(newComment);
 
     this.commentForm.patchValue({ text: '', username: '' });
 
