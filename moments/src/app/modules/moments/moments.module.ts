@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MomentsComponent } from './moments.component';
 import { MomentCreateComponent } from '@modules/moments/moment-create/moment-create.component';
-import { MomentFeedComponent } from '@modules/moments/moment-feed/moment-feed.component';
 import { MomentFormComponent } from '@modules/moments/shared/components/moment-form/moment-form.component';
 import { MomentDetailComponent } from './moment-detail/moment-detail.component';
 import { CommentsComponent } from './moment-detail/comments/comments.component';
@@ -15,7 +14,6 @@ import { CommentsComponent } from './moment-detail/comments/comments.component';
   declarations: [
     MomentsComponent,
     MomentCreateComponent,
-    MomentFeedComponent,
     MomentFormComponent,
     MomentDetailComponent,
     CommentsComponent,

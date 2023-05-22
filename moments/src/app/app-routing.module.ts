@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '@modules/home/home.component';
 import { AboutComponent } from '@modules/about/about.component';
 import { MomentsComponent } from '@modules/moments/moments.component';
-import { MomentFeedComponent } from '@modules/moments/moment-feed/moment-feed.component';
 import { MomentCreateComponent } from '@modules/moments/moment-create/moment-create.component';
 import { MomentDetailComponent } from '@modules/moments/moment-detail/moment-detail.component';
 
@@ -23,10 +22,6 @@ const routes: Routes = [
     component: MomentsComponent,
     title: 'Moments - Your Feed',
     children: [
-      {
-        path: '',
-        component: MomentFeedComponent,
-      },
       {
         path: 'create',
         component: MomentCreateComponent,
